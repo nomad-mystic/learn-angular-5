@@ -8,12 +8,19 @@ import { Component } from '@angular/core';
 
 /**
  * @author Keith Murphy - kmurphy@catalyte.io
- * @summary Get information from the server
- * Class
+ * @whatItDoes Display information from the server
+ * @description
+ * @class
  * @return void
  */
 
 export class ServerComponent {
 
+  serverId: number = 10;
+  serverStatus: string = 'offline';
+
+  getServerStatus() : string {
+    return this.serverStatus;
+  }
 
 }
