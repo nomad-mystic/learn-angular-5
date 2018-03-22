@@ -3,7 +3,11 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
-
+  styles: [`
+      .online {
+        color: white;
+      }
+   `]
 })
 
 /**
@@ -16,11 +20,23 @@ import { Component } from '@angular/core';
 
 export class ServerComponent {
 
-  serverId: number = 10;
-  serverStatus: string = 'offline';
+  protected serverId: number = 10;
+  protected serverStatus: string = 'offline';
 
-  getServerStatus() : string {
+  constructor() {
+    this.serverStatus = Math.random() > 0.5 ? 'Offline' : 'Online';
+  }
+
+
+  // return the server status
+  public getServerStatus() : string {
     return this.serverStatus;
   }
 
-}
+  // changes the color of the server status if it is Online or Offline
+  public getColor(): string {
+
+    return this.serverStatus === 'Online' ? 'green' : 'red';
+
+  }
+} // end class

@@ -21,11 +21,12 @@ export class ServersComponent implements OnInit {
 
   allowNewServer: boolean = false;
   serverCreationStatus: string = 'No server was created!!';
-  serverName: string = '';
+  protected serverName: string = '';
+  protected serverCreated: boolean = false;
+  protected servers: string[] = ['Server 1', 'Server 2'];
 
   // for binding assignment
   username: string = '';
-
 
   constructor() {
     setTimeout(() => {
@@ -38,6 +39,8 @@ export class ServersComponent implements OnInit {
 
   // click event that populates the dom with value
   onCreateServer(): void {
+    this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = 'Server was created name is ' + this.serverName;
   }
 
