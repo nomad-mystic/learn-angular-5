@@ -1,0 +1,15 @@
+.col-12 {
+  border: 1px solid #aaaaaa;
+  border-radius: 4px;
+  padding: 1em;
+  margin: 0 2.5%;
+}
+
+.col-md-6 {
+  width: 45%;
+}
+
+button  {
+  margin: 0 auto;
+  display: block;
+}
