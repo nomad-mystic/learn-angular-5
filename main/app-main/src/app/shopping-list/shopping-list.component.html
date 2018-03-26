@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-10">
-    <app-shopping-list-edit></app-shopping-list-edit>
+    <app-shopping-list-edit
+      (newIngredient)="updateIngredient($event)"></app-shopping-list-edit>
     <hr>
     <div class="list-group">
       <a class="list-group-item list-group-item-action"
