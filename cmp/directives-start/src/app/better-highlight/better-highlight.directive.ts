@@ -36,6 +36,8 @@ export class BetterHighlightDirective implements OnInit {
       console.log('event click');
       console.log((<HTMLParagraphElement>eventData.target).innerText);
       // console.log((<HTMLParagraphElement>eventData));
+
+
     }
 
 }
