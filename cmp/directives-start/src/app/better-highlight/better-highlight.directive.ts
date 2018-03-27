@@ -31,9 +31,11 @@ export class BetterHighlightDirective implements OnInit {
     this.backgroundColor = this.defaultColor;
   }
 
-  @HostListener('click') click (eventData: Event) {
-    console.log('event click');
-    console.log(eventData);
-  }
+  @HostListener('click', ['$event'])
+    click (eventData: Event) {
+      console.log('event click');
+      console.log((<HTMLParagraphElement>eventData.target).innerText);
+      // console.log((<HTMLParagraphElement>eventData));
+    }
 
 }
