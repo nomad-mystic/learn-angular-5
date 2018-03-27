@@ -29,6 +29,18 @@
           </li>
         </div>
       </ul>
+      <p
+        appHighlight>
+        Style me with BasicHighlight Directive</p>
+      <!--<p-->
+        <!--appBetterHighlight-->
+        <!--[defaultColor]="'yellow'"-->
+        <!--[highlightColor]="'red'">-->
+        <!--Style me with BasicHighlight Directive</p>-->
+      <p
+        [appBetterHighlight]="'red'"
+        [defaultColor]="'yellow'">
+        Style me with BasicHighlight Directive</p>
       <ng-template
         [ngIf]="onlyOdd">
         <p>Only odd</p>
