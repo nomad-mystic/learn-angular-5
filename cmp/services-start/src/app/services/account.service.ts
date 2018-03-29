@@ -30,7 +30,7 @@ export class AccountService {
     });
   }
 
-  updateAccount(id: number, status: string) {
+  public updateAccount(id: number, status: string) {
 
     this.accounts[id].status = status;
 
