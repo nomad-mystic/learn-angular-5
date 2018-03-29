@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+
 
 export class LoggerService {
 
-  protected loggerTick: number;
-  protected activeCount: number;
+  protected activeToInactiveLog: number = 0;
+  protected inactiveToActiveLog: number = 0;
 
   constructor() { }
 
-  // logTicker(ticker: number) {
-  //   return this.loggerTick += ticker;
-  // }
+  incrementActiveToInactive() {
+    this.activeToInactiveLog++;
+    console.log(this.activeToInactiveLog);
+  }
 
-  logActiveSelection(ticker: number) {
 
-    this.activeCount = ticker += 1;
-
+  incrementIactiveToActive() {
+    this.inactiveToActiveLog++;
+    console.log(this.inactiveToActiveLog);
   }
 
 

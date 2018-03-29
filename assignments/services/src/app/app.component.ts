@@ -11,13 +11,14 @@ export class AppComponent implements OnInit {
 
   protected activeUsers: string[];
   protected inactiveUsers: string[];
-  protected ticker: number = 0;
+  protected activeCount = 5;
+  // protected ticker: number = 0;
 
   constructor(private usersService: UsersService, private loggerService: LoggerService) {}
 
   ngOnInit() {
-    this.activeUsers = this.usersService.activeUsers;
-    this.inactiveUsers = this.usersService.inactiveUsers;
+    // this.activeUsers = this.usersService.activeUsers;
+    // this.inactiveUsers = this.usersService.inactiveUsers;
   }
 
 }
