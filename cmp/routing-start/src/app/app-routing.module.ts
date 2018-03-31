@@ -1,6 +1,5 @@
 import { ServerComponent } from './servers/server/server.component';
 import { ServersComponent } from './servers/servers.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { AuthGuardService } from './auth-guard.service';
 import { CanDeactivateGuardService } from './servers/edit-server/can-deactivate-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { ServerResolverService } from './servers/server/server-resolver.service';
 
 
 const appRoutes: Routes = [
@@ -36,6 +36,9 @@ const appRoutes: Routes = [
       {
         path: ':id',
         component: ServerComponent,
+        resolve: {
+          server: ServerResolverService,
+        },
       },
       {
         path: ':id/edit',
@@ -66,7 +69,10 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes)
+    // RouterModule.forRoot(appRoutes, {
+    //   useHash: true,
+    // }),
   ],
   exports: [
     RouterModule,
