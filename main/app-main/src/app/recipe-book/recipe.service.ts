@@ -15,7 +15,8 @@ export class RecipeService {
 
 
   private recipes: Recipe[] = [
-    new Recipe('A Test Recipe 1',
+    new Recipe(
+      'A Test Recipe 1',
       'This a test desc 1',
       'https://food.fnr.sndimg.com/content/dam/images/food/fullset/' +
       '2012/2/29/0/0149359_Making-Taco_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371603491866.jpeg',
@@ -23,7 +24,8 @@ export class RecipeService {
         new Ingredient('Meat', 1),
         new Ingredient('French Fries', 20)
       ]),
-    new Recipe('A Test Recipe 2',
+    new Recipe(
+      'A Test Recipe 2',
       'This a test desc 2', 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/2/29/0/' +
       '0149359_Making-Taco_s4x3.jpg.rend.hgtvcom.616.462.suffix/1371603491866.jpeg',
       [
@@ -33,11 +35,15 @@ export class RecipeService {
   ];
 
 
-  getRecipes() {
+  getRecipeById (id: number) {
+    return this.recipes[id];
+  }
+
+  getRecipes () {
     return this.recipes.slice();
   }
 
-  addIngredientsToShoppingList(ingredients: Ingredient[]) {
+  addIngredientsToShoppingList (ingredients: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
   }
 

@@ -1,19 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<app-header
-  (currentNavItem)="onNavChanged($event)"
-></app-header>
+<app-header></app-header>
 <div class="container">
       <div class="row"  style="margin-top: 2em;">
         <div class="col-12">
-          <app-recipe-book
-            *ngIf="navItem === 'Recipes(current)'"
-            (itemDetails)="displayDetails($event)">
-          </app-recipe-book>
-          <app-shopping-list
-            *ngIf="navItem !== 'Recipes(current)'">
-          </app-shopping-list>
-
+          <router-outlet></router-outlet>
         </div>
       </div>
 </div>
