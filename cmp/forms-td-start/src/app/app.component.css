@@ -1,0 +1,8 @@
+.container {
+  margin-top: 30px;
+}
+
+#email.ng-invalid.ng-touched,
+#username.ng-invalid.ng-touched {
+  border: solid red 1px;
+}
