@@ -10,7 +10,7 @@ import * as _ from 'lodash';
 export class RecipeEditComponent implements OnInit {
 
   protected id: number;
-  protected editMode: false;
+  protected editMode;
 
   constructor(private route: ActivatedRoute) { }
 

@@ -50,7 +50,7 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy (): void {
-    this.route.params.unsubscribe();
+    // this.route.params.unsubscribe();
   }
 
 }

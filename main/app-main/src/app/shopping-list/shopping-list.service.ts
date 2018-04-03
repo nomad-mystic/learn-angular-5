@@ -2,12 +2,13 @@ import { Ingredient } from '../shared/ingredient.model';
 import { EventEmitter, Injectable, OnInit } from '@angular/core';
 import { RecipeService } from '../recipe-book/recipe.service';
 import { Recipe } from '../recipe-book/recipe.module';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 
 export class ShoppingListService implements OnInit {
 
-  public ingredientAdded = new EventEmitter<Ingredient[]>();
+  public ingredientAdded = new Subject<Ingredient[]>();
   ingredientsToAddToShoppingList: Ingredient[];
 
 
@@ -27,13 +28,13 @@ export class ShoppingListService implements OnInit {
   addIngredient(ingredient: Ingredient): void {
 
     this.ingredients.push(ingredient);
-    this.ingredientAdded.emit(this.ingredients.slice());
+    this.ingredientAdded.next(this.ingredients.slice());
 
   }
 
   addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
-    this.ingredientAdded.emit(this.ingredients.slice());
+    this.ingredientAdded.next(this.ingredients.slice());
   }
 
   getInitIngredients() {
