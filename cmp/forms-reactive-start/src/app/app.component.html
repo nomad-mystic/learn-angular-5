@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form
+        [formGroup]="sigupForm"
+        (ngSubmit)="onSubmit()">
+        <div
+          formGroupName="userData">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              class="form-control"
+              [formControlName]="'username'">
+            <span
+              *ngIf="!sigupForm.get('userData.username').valid && sigupForm.get('userData.username').touched"
+              class="help-block">
+              <span
+                *ngIf="sigupForm.get('userData.username').errors['nameIsForbidden']">This name is invalid</span>
+              <span
+                *ngIf="sigupForm.get('userData.username').errors['required']">Username is required</span>
+              <br>
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="email">email</label>
+            <input
+              type="text"
+              id="email"
+              class="form-control"
+              formControlName="email">
+            <span
+              *ngIf="!sigupForm.get('userData.email').valid && sigupForm.get('userData.email').touched"
+              class="help-block"
+            >Please Enter a Valid email</span>
+          </div>
+        </div>
+        <div class="radio" *ngFor="let gender of genders">
+          <label>
+            <input
+              type="radio"
+              [value]="gender"
+              formControlName="gender">{{ gender }}
+          </label>
+        </div>
+        <div formArrayName="hobbies">
+          <h4>Your hobbies</h4>
+          <div
+            class="form-group"
+            *ngFor="let hobbyControl of sigupForm.get('hobbies').controls; let i = index">
+            <input
+              type="text"
+              name=""
+              id=""
+              class="form-control"
+              placeholder="Add Your Hobby Here"
+              aria-describedby="helpId"
+              [formControlName]="i">
+          </div>
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="onAddHobbies()">Add Hobby</button>
+        </div>
+        <button
+          class="btn btn-primary"
+          type="submit">Submit</button>
+        <span
+          *ngIf="!sigupForm.valid && sigupForm.touched"
+          class="help-block"
+        >Please Enter a Valid Data</span>
+      </form>
+    </div>
+  </div>
+</div>
