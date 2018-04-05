@@ -17,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RecipesStartComponent } from './recipes-start/recipes-start.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
   ],
   providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent]
