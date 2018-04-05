@@ -6,7 +6,7 @@ import { RecipeService } from './recipe.service';
   selector: 'app-recipe-book',
   templateUrl: './recipe-book.component.html',
   styleUrls: ['./recipe-book.component.css'],
-  providers: [RecipeService]
+  // providers: [RecipeService]
 })
 
 export class RecipeBookComponent implements OnInit {
@@ -16,10 +16,6 @@ export class RecipeBookComponent implements OnInit {
 
   ngOnInit() {
 
-  }
-
-  protected displayDetails(event: Event): void {
-    console.log('testing');
   }
 
 }

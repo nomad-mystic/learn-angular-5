@@ -22,15 +22,20 @@
               aria-expanded="false">
         Manage Recipe
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div
+        class="dropdown-menu"
+        aria-labelledby="dropdownMenuButton">
         <button
           class="dropdown-item"
-          (click)="onAddToShoppingList()">To Shopping List</button>
+          (click)="onAddToShoppingList()"
+          >To Shopping List</button>
         <button
           class="dropdown-item"
           (click)="onEditRecipe()"
           >Edit Recipe</button>
-        <button class="dropdown-item">Delete Recipe</button>
+        <button
+          class="dropdown-item"
+          (click)="onDeleteRecipe()">Delete Recipe</button>
       </div>
     </div>
   </div>
