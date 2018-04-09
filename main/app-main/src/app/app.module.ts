@@ -18,6 +18,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RecipesStartComponent } from './recipes-start/recipes-start.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpService } from './services/http.service';
+import { Http, HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -40,11 +42,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpModule,
   ],
   providers: [
     ShoppingListService,
     RecipeService,
     RecipeService,
+    HttpService,
   ],
   bootstrap: [AppComponent]
 })

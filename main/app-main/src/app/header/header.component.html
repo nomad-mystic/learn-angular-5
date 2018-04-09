@@ -19,7 +19,7 @@
     <ul class="nav">
       <li class="nav-item dropdown" appDirective>
         <a class="nav-link dropdown-toggle"
-           href="#" id="navbarDropdown"
+           id="navbarDropdown"
            role="button"
            data-toggle="dropdown"
            aria-haspopup="true"
@@ -27,10 +27,8 @@
           Manage
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item">Action</a>
-          <a class="dropdown-item">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item">Something else here</a>
+          <a class="dropdown-item" (click)="onPUTRecipes()">Save Recipes</a>
+          <a class="dropdown-item" (click)="onGETRecipes()">Fetch Recipes</a>
         </div>
       </li>
     </ul>

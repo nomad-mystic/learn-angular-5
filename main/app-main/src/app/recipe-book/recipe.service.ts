@@ -15,7 +15,6 @@ export class RecipeService {
 
   constructor(private shoppingListService: ShoppingListService) { }
 
-
   private recipes: Recipe[] = [
     new Recipe(
       'A Test Recipe 1',
@@ -44,7 +43,6 @@ export class RecipeService {
       ]),
   ];
 
-
   getRecipeById (id: number) {
     return this.recipes[id];
   }
@@ -57,13 +55,18 @@ export class RecipeService {
     this.shoppingListService.addIngredients(ingredients);
   }
 
-  addRecipe(recipe: Recipe): void {
+  addRecipe (recipe: Recipe): void {
     this.recipes.push(recipe);
     this.recipesChanged.next(this.recipes.slice());
   }
 
-  updateRecipe(index: number, newRecipe: Recipe): void {
+  updateRecipe (index: number, newRecipe: Recipe): void {
     this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  updateRecipes (recipes: Recipe[]) {
+    this.recipes = recipes;
     this.recipesChanged.next(this.recipes.slice());
   }
 
