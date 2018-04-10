@@ -20,6 +20,10 @@ import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpService } from './services/http.service';
 import { Http, HttpModule } from '@angular/http';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './auth/auth.service';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 
 @NgModule({
@@ -36,6 +40,8 @@ import { Http, HttpModule } from '@angular/http';
     NotFoundComponent,
     RecipesStartComponent,
     RecipeEditComponent,
+    SignupComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +55,8 @@ import { Http, HttpModule } from '@angular/http';
     RecipeService,
     RecipeService,
     HttpService,
+    AuthService,
+    AuthGuardService,
   ],
   bootstrap: [AppComponent]
 })

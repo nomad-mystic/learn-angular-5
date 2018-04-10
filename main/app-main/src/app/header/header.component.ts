@@ -3,6 +3,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { Recipe } from '../recipe-book/recipe.module';
 import { RecipeService } from '../recipe-book/recipe.service';
+import { AuthService } from '../auth/auth.service';
 
 
 @Component({
@@ -17,7 +18,11 @@ export class HeaderComponent {
   private recipes: Recipe[] = this.recipesService.getRecipes();
 
 
-  constructor (private httpService: HttpService, private recipesService: RecipeService) {}
+  constructor (
+    private httpService: HttpService,
+    private recipesService: RecipeService,
+    private authService: AuthService,
+    ) {}
 
   onPUTRecipes () {
     this.httpService.PUTRecipes(this.recipes)
@@ -41,5 +46,10 @@ export class HeaderComponent {
           console.log(error);
         }
       );
+
+  }
+
+  onLogout () {
+    this.authService.logout();
   }
 }

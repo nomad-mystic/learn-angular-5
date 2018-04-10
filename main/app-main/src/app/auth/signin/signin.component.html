@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-12 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+    <form
+      (ngSubmit)="onSubmitSignin(signinForm)"
+      #signinForm="ngForm">
+      <div class="form-group">
+        <label for="email">Mail</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          id="email"
+          aria-describedby="email-signup"
+          placeholder="Please enter you email..."
+          ngModel>
+        <small id="email-signup" class="form-text text-muted">Not the right email</small>
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="form-control"
+          placeholder="Please enter your password..."
+          aria-describedby="helpId"
+          ngModel>
+        <small id="helpId" class="text-muted">Help text</small>
+      </div>
+      <button type="submit"
+              name="signin"
+              id="signin"
+              class="btn btn-primary btn-lg btn-block">Sign In
+      </button>
+    </form>
+  </div>

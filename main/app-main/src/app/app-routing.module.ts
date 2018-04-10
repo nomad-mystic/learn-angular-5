@@ -6,6 +6,9 @@ import { RecipeDetailComponent } from './recipe-book/recipe-detail/recipe-detail
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RecipesStartComponent } from './recipes-start/recipes-start.component';
 import { RecipeEditComponent } from './recipe-book/recipe-edit/recipe-edit.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
   {
@@ -24,6 +27,7 @@ const appRoutes: Routes = [
       {
         path: 'new',
         component: RecipeEditComponent,
+        canActivate: [AuthGuardService],
       },
       {
         path: ':id',
@@ -32,8 +36,17 @@ const appRoutes: Routes = [
       {
         path: ':id/edit',
         component: RecipeEditComponent,
+        canActivate: [AuthGuardService],
       },
     ]
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
+  },
+  {
+    path: 'signin',
+    component: SigninComponent,
   },
   {
     path: 'shopping-list',

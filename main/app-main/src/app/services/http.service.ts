@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Recipe } from '../recipe-book/recipe.module';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 
@@ -10,10 +11,12 @@ export class HttpService {
 
   private recipesEndPoint: string = 'https://nomad-recipe-book.firebaseio.com/recipes.json';
 
-  constructor (private http: Http)  {}
+  constructor (private http: Http, private authService: AuthService)  {}
 
   PUTRecipes (recipes: Recipe[]): Observable<any> {
-    return this.http.put(this.recipesEndPoint, recipes, {})
+    const token = this.authService.getUserToken();
+
+    return this.http.put(`${this.recipesEndPoint}/?auth=${token}`, recipes, {})
       .map(
         (response: Response) => {
           return response.json();
@@ -26,7 +29,9 @@ export class HttpService {
   }
 
   GETRecipes () {
-    return this.http.get(this.recipesEndPoint)
+    const token = this.authService.getUserToken();
+
+    return this.http.get(`${this.recipesEndPoint}/?auth=${token}`)
       .map(
         (response: Response) => {
           const recipes = response.json();
@@ -45,4 +50,5 @@ export class HttpService {
         }
       );
   }
+
 }
