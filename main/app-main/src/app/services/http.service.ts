@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Recipe } from '../recipe-book/recipe.module';
+import { Recipe } from '../recipe-book/recipe.model';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { AuthService } from '../auth/auth.service';

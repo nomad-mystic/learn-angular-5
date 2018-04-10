@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 
 import { HttpService } from '../services/http.service';
-import { Recipe } from '../recipe-book/recipe.module';
+import { Recipe } from '../recipe-book/recipe.model';
 import { RecipeService } from '../recipe-book/recipe.service';
 import { AuthService } from '../auth/auth.service';
 

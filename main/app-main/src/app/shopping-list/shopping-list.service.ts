@@ -1,7 +1,7 @@
 import { Ingredient } from '../shared/ingredient.model';
 import { EventEmitter, Injectable, OnInit } from '@angular/core';
 import { RecipeService } from '../recipe-book/recipe.service';
-import { Recipe } from '../recipe-book/recipe.module';
+import { Recipe } from '../recipe-book/recipe.model';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
