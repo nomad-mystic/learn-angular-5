@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class ShoppingListEditComponent implements OnInit, OnDestroy {
 
   private itemSubscription: Subscription;
-  private editMode: boolean = false;
+  public editMode: boolean = false;
   private editedItemIndex: number;
   private editedItem: Ingredient;
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit {
   private loadedFeature = 'recipe';
   protected navItem: string = 'Recipes(current)';
 
+  // constructor (private authService: AuthService) {}
 
   ngOnInit (): void {
     firebase.initializeApp({

@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import { Component } from '@angular/core';
 
-import { HttpService } from '../services/http.service';
-import { Recipe } from '../recipe-book/recipe.model';
-import { RecipeService } from '../recipe-book/recipe.service';
-import { AuthService } from '../auth/auth.service';
+import { HttpService } from '../../services/http.service';
+import { Recipe } from '../../recipe-book/recipe.model';
+import { RecipeService } from '../../recipe-book/recipe.service';
+import { AuthService } from '../../auth/auth.service';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class HeaderComponent {
   constructor (
     private httpService: HttpService,
     private recipesService: RecipeService,
-    private authService: AuthService,
+    public authService: AuthService,
     ) {}
 
   onPUTRecipes () {

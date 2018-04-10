@@ -12,7 +12,7 @@ import { ActivatedRoute, Params, Route, Router } from '@angular/router';
 
 export class RecipeDetailComponent implements OnInit, OnDestroy {
 
-  protected recipe: Recipe;
+  public recipe: Recipe;
   protected id: number;
 
   constructor(

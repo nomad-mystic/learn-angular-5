@@ -13,15 +13,17 @@ import { Recipe } from '../recipe.model';
 export class RecipeEditComponent implements OnInit {
 
   protected id: number;
-  protected editMode;
-  protected editRecipeForm: FormGroup;
+  public editMode;
+  public editRecipeForm: FormGroup;
   // protected imagePathSrc: string = '';
 
   @ViewChild('imagePathSrc') imagePathSrc: ElementRef;
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     private recipeService: RecipeService,
-    private router: Router) { }
+    private router: Router
+  ) {}
 
   ngOnInit (): void {
     this.route.params
@@ -109,4 +111,9 @@ export class RecipeEditComponent implements OnInit {
 
     (<FormArray>this.editRecipeForm.get('ingredients')).removeAt(index);
   }
+
+  getControls () {
+    return (<FormArray>this.editRecipeForm.get('ingredients')).controls;
+  }
+
 }

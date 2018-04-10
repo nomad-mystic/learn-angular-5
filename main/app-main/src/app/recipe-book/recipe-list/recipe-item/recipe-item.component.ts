@@ -9,8 +9,8 @@ import { RecipeService } from '../../recipe.service';
 })
 export class RecipeItemComponent implements OnInit {
 
-  @Input() protected recipe: Recipe;
-  @Input() protected index: number;
+  @Input() recipe: Recipe;
+  @Input() index: number;
 
   protected name: string;
   protected desc: string;

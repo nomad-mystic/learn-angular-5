@@ -19,7 +19,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 export class RecipeListComponent implements OnInit, OnDestroy {
 
-  protected recipes: Recipe[];
+  recipes: Recipe[];
   private id: number;
   private subscription: Subscription;
 
