@@ -2,10 +2,6 @@ import { Ingredient } from '../../shared/ingredient.model';
 import * as ShoppingListActions from './shopping-list.actions';
 
 
-// For all other states besides the initial state
-export interface AppState {
-  shoppingList: State;
-}
 
 // This is for the initial state
 export interface State {
@@ -25,10 +21,9 @@ const initState: State = {
 };
 
 export function shoppingListReducer (state = initState, action: ShoppingListActions.ShoppingListActions) {
+  console.log(action.type);
   switch (action.type) {
     case ShoppingListActions.ADD_INGREDIENT:
-      console.log('ShoppingListActions.ADD_INGREDIENT');
-      console.log(action.type);
       return {
         ...state,
         ingredients: [
@@ -58,7 +53,9 @@ export function shoppingListReducer (state = initState, action: ShoppingListActi
 
       return {
         ...state,
-        ingredients: ingredients
+        ingredients: ingredients,
+        editedIngredient: null,
+        editedIngredientIndex: -1,
       }
     case ShoppingListActions.DELETE_INGREDIENT:
       const deletedIngredients = [
@@ -70,6 +67,8 @@ export function shoppingListReducer (state = initState, action: ShoppingListActi
       return {
         ...state,
         ingredients: deletedIngredients,
+        editedIngredient: null,
+        editedIngredientIndex: -1,
       }
     case ShoppingListActions.START_EDIT:
       const editedIngredient = {...state.ingredients[action.payload]};
@@ -78,6 +77,12 @@ export function shoppingListReducer (state = initState, action: ShoppingListActi
         ...state,
         editedIngredient: editedIngredient,
         editedIngredientIndex: action.payload,
+      }
+    case ShoppingListActions.STOP_EDIT:
+      return {
+        ...state,
+        editedIngredient: null,
+        editedIngredientIndex: -1,
       }
     default:
       return state;
